@@ -1,36 +1,36 @@
-const next = document.querySelector(".fa-forward");
+const nextEl = document.querySelector(".next");
 
-const prev = document.querySelector(".fa-backward");
+const prevEl = document.querySelector(".prev");
 
-const image = document.querySelectorAll(".img");
+const imgsEl = document.querySelectorAll("img");
 
-const imageContainer = document.querySelector(".image-container");
+const imageContainerEl = document.querySelector(".image-container");
 
 let currentImg = 1;
 
 let timeout;
 
-next.addEventListener("click", () => {
+nextEl.addEventListener("click", () => {
   currentImg++;
   clearTimeout(timeout);
   updateImg();
-});
+})
 
-prev.addEventListener("click", () => {
+prevEl.addEventListener("click", () => {
   currentImg--;
   clearTimeout(timeout);
   updateImg();
-});
+})
 
 updateImg();
 
-function updateImg() {
-  if (currentImg > img.length) {
+function updateImg () {
+  if (currentImg > imgsEl.length) {
     currentImg = 1;
   } else if (currentImg < 1) {
-    currentImg = img.length;
+    currentImg = imgsEl.length;
   }
-  imageContainer.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
+  imageContainerEl.style.transform = `translateX(-${(currentImg - 1) * 500}px)`;
   timeout = setTimeout(() => {
     currentImg++;
     updateImg();
